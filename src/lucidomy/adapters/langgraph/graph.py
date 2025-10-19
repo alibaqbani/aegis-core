@@ -41,3 +41,19 @@ def call_model(state: AgentState):
     messages = state["messages"]
     response = llm_with_tools.invoke(messages, config={"callbacks": [cost_callback]})
     return {"messages": [response]}
+
+
+def call_tool_node(state: AgentState):
+    """
+    Executes tool calls requested by the LLM.
+
+    Args:
+        state: The current state of the agent, containing messages with tool calls.
+
+    Returns:
+        A dictionary with the tool's output messages.
+    """
+    last_message = state["messages"][-1]
+    if last_message.tool_calls:
+        tool_messages = tool_executor.invoke(last_message.tool_calls)
+        return {"messages": tool_messages}

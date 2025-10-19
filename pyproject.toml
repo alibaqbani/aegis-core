@@ -1,0 +1,36 @@
+[project]
+name = "aegis_core"
+version = "0.1.0"
+description = "A multi-framework blueprint for production-grade AI..."
+requires-python = ">=3.13"
+
+[project.dependencies]
+# Core
+pydantic = "*"
+python-dotenv = "*"
+fastapi = "*"
+uvicorn = "*"
+google-generativeai = "*"
+
+# Framework 1 (LangGraph)
+langchain = "*"
+langgraph = "*"
+langchain-google-genai = "*"
+
+# Framework 2 (Genkit)
+google-genkit = "*"
+
+# Framework 3 (ADK)
+google-cloud-adk = "*"
+
+[project.optional-dependencies]
+dev = [
+    "ruff~=0.4",
+    "pytest~=8.2"
+]
+
+[tool.ruff]
+line-length = 88
+
+[tool.ruff.lint]
+select = ["E", "W", "F", "I", "C", "B"]

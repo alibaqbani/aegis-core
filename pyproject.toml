@@ -1,5 +1,5 @@
 [project]
-name = "lucid_autonomy"
+name = "aegis_core"
 version = "0.1.0"
 description = "A multi-framework blueprint for production-grade AI..."
 authors = [

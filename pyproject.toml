@@ -2,30 +2,26 @@
 name = "aegis_core"
 version = "0.1.0"
 description = "A multi-framework blueprint for production-grade AI..."
-authors = [
-    { name = "Jules", email = "jules@example.com" }
-]
-requires-python = ">=3.11"
+requires-python = ">=3.13"
 
 [project.dependencies]
 # Core
-pydantic = "~=2.7"
-python-dotenv = "~=0.21"
-fastapi = "~=0.111"
-uvicorn = "~=0.29"
-google-generativeai = "~=0.5"
+pydantic = "*"
+python-dotenv = "*"
+fastapi = "*"
+uvicorn = "*"
+google-generativeai = "*"
 
 # Framework 1 (LangGraph)
-langchain = "~=0.1"
-langgraph = "~=0.0.48"
-langchain-google-genai = "~=1.0"
+langchain = "*"
+langgraph = "*"
+langchain-google-genai = "*"
 
 # Framework 2 (Genkit)
-google-genkit = "~=0.2"
+google-genkit = "*"
 
 # Framework 3 (ADK)
-google-cloud-adk = "~=0.2"
-google-cloud-aiplatform = "~=1.50"
+google-cloud-adk = "*"
 
 [project.optional-dependencies]
 dev = [

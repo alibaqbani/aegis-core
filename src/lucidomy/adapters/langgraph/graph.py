@@ -26,3 +26,18 @@ tool_executor = ToolExecutor(tools)
 cost_callback = CostLoggingCallbackHandler()
 llm = ChatGoogleGenerativeAI(model="gemini-1.5-pro-latest")
 llm_with_tools = llm.bind_tools(tools)
+
+
+def call_model(state: AgentState):
+    """
+    Invokes the LLM with the current state's messages.
+
+    Args:
+        state: The current state of the agent, containing messages.
+
+    Returns:
+        A dictionary with the LLM's response message.
+    """
+    messages = state["messages"]
+    response = llm_with_tools.invoke(messages, config={"callbacks": [cost_callback]})
+    return {"messages": [response]}
